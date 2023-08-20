@@ -5,7 +5,7 @@ import './MusicTable.css';
 
 
 
-function MusicTable() {
+function MusicTable({onEdit}) {
   const [songs, setSongs] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,6 @@ function MusicTable() {
   
   async function getAllSongs() {
       const response = await axios.get('http://127.0.0.1:8000/api/music/');
-      console.log(response.data);
       setSongs(response.data)  
   }
 
@@ -24,10 +23,12 @@ function MusicTable() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Title</th>
+            <th>Song Title</th>
             <th>Artist</th>
             <th>Album</th>
+            <th>Genre</th>
             <th>Release Date</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -36,7 +37,11 @@ function MusicTable() {
               <td>{song.title}</td>
               <td>{song.artist}</td>
               <td>{song.album}</td>
+              <th>{song.genre}</th>
               <td>{song.release_date}</td>
+              <td>
+                <button onClick={() => onEdit(song)}>Edit</button>
+              </td>
             </tr>
 
           ))}

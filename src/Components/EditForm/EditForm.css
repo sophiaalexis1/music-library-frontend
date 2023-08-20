@@ -1,7 +1,5 @@
-body {
-  background-image: url('./Assests/background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+.modal-active {
+  display: flex;
 }
 
 .modal-backdrop {
@@ -22,8 +20,4 @@ body {
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   display: none;
-}
-
-.modal-active {
-  display: flex;
 }
