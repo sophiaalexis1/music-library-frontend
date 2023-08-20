@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavBar from './Components/NavBar/NavBar';
 import MusicTable from './Components/MusicTable/MusicTable';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <div>
       <NavBar />
       <MusicTable />
+      <Footer />
     </div>
   );
 }
