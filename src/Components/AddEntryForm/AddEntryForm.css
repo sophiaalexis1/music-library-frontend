@@ -3,7 +3,7 @@
 }
 
 .Form {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: 2px solid #ccc;
     padding: 20px;
     border-radius: 10px;
@@ -12,10 +12,10 @@
 
 .Form h2 {
     font-size: 24px;
-    color: #fdfafa;
+    color: #000000;
 }
 
 .Form label {
     font-size: 16px;
-    color: rgb(247, 250, 249);
+    color: rgb(2, 2, 2);
 }

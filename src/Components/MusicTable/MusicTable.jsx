@@ -18,7 +18,7 @@ function MusicTable({onEdit}) {
   }
 
   return (
-    <div>
+    <div className='table'>
       <h2>Music Library</h2>
       <Table striped bordered hover variant="dark">
         <thead>

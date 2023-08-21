@@ -1,3 +1,14 @@
+
+.table {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(159, 152, 155, 0.7);
+    color: #000000;
+}
+
 h2 {
-    color: white
+    font-size: 24px;
+    color: #000000;
 }
