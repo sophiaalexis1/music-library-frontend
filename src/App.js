@@ -8,9 +8,11 @@ import Footer from './Components/Footer/Footer';
 import MusicData from './Components/MusicData/MusicData';
 import FilterMusic from './Components/FilteredMusic/FilteredMusic';
 import EditForm from './Components/EditForm/EditForm';
+import AddEntryForm from './Components/AddEntryForm/AddEntryForm';
 
 function App() {
   const [editSong, setEditSong] = useState(null);
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
   // const [filteredSongs, setFilteredSongs] = useState(MusicData);
 
   // const handleFilter = (filterText) => {
@@ -22,7 +24,7 @@ function App() {
   //   setFilteredSongs(filtered);
   // };
 
-  
+
   const handleEdit = (song) => {
     setEditSong(song);
   };
@@ -30,7 +32,15 @@ function App() {
   const handleEditClose = () => {
     setEditSong(null);
   };
-  
+
+  const handleAdd = () => {
+    setIsAddModalVisible(true);
+  };
+
+  const handleAddClose = () => {
+    setIsAddModalVisible(false);
+  };
+
   return (
     <div>
       <NavBar />
@@ -40,7 +50,8 @@ function App() {
       {editSong && (
         <EditForm song={editSong} onClose={handleEditClose} />
       )}
-      <Footer />
+      <AddEntryForm onClose={handleAddClose} />
+      {/* <Footer /> */}
     </div>
   );
 }

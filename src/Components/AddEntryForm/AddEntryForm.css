@@ -1,0 +1,23 @@
+.form-grid {
+    display: grid;
+}
+
+.Form {
+    font-family: Arial, sans-serif;
+    border: 2px solid #ccc;
+    /* Add a border with a 2px width and a gray color */
+    padding: 20px;
+    /* Add padding for better spacing */
+    border-radius: 10px;
+    /* Add rounded corners to the border */
+}
+
+.Form h2 {
+    font-size: 24px;
+    color: #fdfafa;
+}
+
+.Form label {
+    font-size: 16px;
+    color: rgb(247, 250, 249);
+}
