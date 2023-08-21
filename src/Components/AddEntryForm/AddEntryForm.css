@@ -5,11 +5,9 @@
 .Form {
     font-family: Arial, sans-serif;
     border: 2px solid #ccc;
-    /* Add a border with a 2px width and a gray color */
     padding: 20px;
-    /* Add padding for better spacing */
     border-radius: 10px;
-    /* Add rounded corners to the border */
+    background-color: rgba(159, 152, 155, 0.7)
 }
 
 .Form h2 {
