@@ -6,23 +6,14 @@ import MusicTable from './Components/MusicTable/MusicTable';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
 import MusicData from './Components/MusicData/MusicData';
-import FilterMusic from './Components/FilteredMusic/FilteredMusic';
+import FilterMusic from './Components/FilterMusic/FilterMusic';
 import EditForm from './Components/EditForm/EditForm';
 import AddEntryForm from './Components/AddEntryForm/AddEntryForm';
 
 function App() {
   const [editSong, setEditSong] = useState(null);
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
-  // const [filteredSongs, setFilteredSongs] = useState(MusicData);
-
-  // const handleFilter = (filterText) => {
-  //   const filtered = MusicData.filter(
-  //     (song) =>
-  //       song.title.toLowerCase().includes(filterText.toLowerCase()) ||
-  //       song.artist.toLowerCase().includes(filterText.toLowerCase())
-  //   );
-  //   setFilteredSongs(filtered);
-  // };
+  const [filterText, setFilterText] = useState('');
 
 
   const handleEdit = (song) => {
@@ -41,15 +32,22 @@ function App() {
     setIsAddModalVisible(false);
   };
 
+  const handleFilterChange = (newFilterText) => {
+    setFilterText(newFilterText);
+  };
+
   return (
     <div>
       <NavBar />
-      {/* <FilterMusic onFilter={handleFilter} /> */}
-      {/* <MusicTable songs={filteredSongs} /> */}
       <div className='table-form'>
       <AddEntryForm onClose={handleAddClose} className='add-entry-form' />
       <br />
-      <MusicTable onEdit={handleEdit} className='music-table' />
+      <MusicTable 
+        onEdit={handleEdit} 
+        filterText={filterText} 
+        onFilterChange={handleFilterChange}
+        className='music-table' 
+      />
       </div>
       {/* <Footer /> */}
     </div>
