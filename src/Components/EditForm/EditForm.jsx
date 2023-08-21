@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './EditForm.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function EditForm({ song, onClose }) {
   const [editedSong, setEditedSong] = useState(song);
@@ -27,12 +29,40 @@ function EditForm({ song, onClose }) {
     <div className='modal-backdrop'>
       <div className="modal-container">
         <h2>Edit Song</h2>
-        <form>
-          <label>Title:</label>
-          <input
+        <Form>
+          <Form.Label>Title:</Form.Label>
+          <Form.Control
             type="text"
             name="title"
             value={editedSong.title}
+            onChange={handleInputChange}
+          />
+          <Form.Label>Artist:</Form.Label>
+          <Form.Control
+            type="text"
+            name="artist"
+            value={editedSong.artist}
+            onChange={handleInputChange}
+          />
+          <Form.Label>Album:</Form.Label>
+          <Form.Control
+            type="text"
+            name="album"
+            value={editedSong.album}
+            onChange={handleInputChange}
+          />
+          <Form.Label>Genre:</Form.Label>
+          <Form.Control
+            type="text"
+            name="genre"
+            value={editedSong.genre}
+            onChange={handleInputChange}
+          />
+          <Form.Label>Release Date:</Form.Label>
+          <Form.Control
+            type="date"
+            name="release_date"
+            value={editedSong.release_date}
             onChange={handleInputChange}
           />
           <button type="button" onClick={handleUpdate}>
@@ -41,7 +71,7 @@ function EditForm({ song, onClose }) {
           <button type="button" onClick={onClose}>
             Cancel
           </button>
-        </form>
+        </Form>
       </div>
     </div>
   );

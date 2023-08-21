@@ -3,11 +3,13 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import './MusicTable.css';
 import FilterMusic from '../FilterMusic/FilterMusic';
+import EditForm from '../EditForm/EditForm';
 
 
 
 function MusicTable({ onEdit, filterText, onFilterChange }) {
   const [songs, setSongs] = useState([]);
+  const [showEditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
     getAllSongs();
@@ -25,9 +27,9 @@ function MusicTable({ onEdit, filterText, onFilterChange }) {
   return (
     <div className='table'>
       <h2>Music Library</h2>
-      <FilterMusic 
+      <FilterMusic
         filterText={filterText}
-        onFilterChange={handleFilterChange} 
+        onFilterChange={handleFilterChange}
       />
       <Table striped bordered hover variant="dark" size='sm'>
         <thead>
@@ -51,17 +53,33 @@ function MusicTable({ onEdit, filterText, onFilterChange }) {
                 song.release_date.toLowerCase().includes(filterText.toLowerCase())
             )
             .map((song) => (
-              <tr key={song.id}>
-                <td>{song.title}</td>
-                <td>{song.artist}</td>
-                <td>{song.album}</td>
-                <th>{song.genre}</th>
-                <td>{song.release_date}</td>
-                <td>
-                  <button onClick={() => onEdit(song)}>Edit</button>
-                </td>
-              </tr>
-
+              <React.Fragment key={song.id}>
+                <tr>
+                  <td>{song.title}</td>
+                  <td>{song.artist}</td>
+                  <td>{song.album}</td>
+                  <th>{song.genre}</th>
+                  <td>{song.release_date}</td>
+                  <td>
+                    <button onClick={() => {
+                      console.log("Edit button clicked")
+                      onEdit(song);
+                      setShowEditForm(true);
+                    }}>Edit</button>
+                  </td>
+                </tr>
+                {showEditForm && (
+                  <tr key={`${song.id}-edit`}>
+                    <td colSpan="6">
+                      <div className="modal-backdrop modal-active">
+                        <div className="modal-container">
+                          <EditForm song={song} onClose={() => setShowEditForm(false)} />
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </React.Fragment>
             ))}
         </tbody>
       </Table>

@@ -39,6 +39,7 @@ function App() {
   return (
     <div>
       <NavBar />
+      <br />
       <div className='table-form'>
       <AddEntryForm onClose={handleAddClose} className='add-entry-form' />
       <br />
@@ -49,7 +50,10 @@ function App() {
         className='music-table' 
       />
       </div>
-      {/* <Footer /> */}
+      <br />
+      <div className='footer'>
+      <Footer />
+      </div>
     </div>
   );
 }
