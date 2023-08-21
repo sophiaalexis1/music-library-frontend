@@ -27,3 +27,14 @@ body {
 .modal-active {
   display: flex;
 }
+
+
+
+
+.add-entry-form {
+  margin: 1em;
+  padding: 1em;
+  width: 100%; /* Make the components take up full width */
+  max-width: 700px; /* Adjust the maximum width as needed */
+}
+

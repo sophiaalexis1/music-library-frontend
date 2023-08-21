@@ -46,11 +46,11 @@ function App() {
       <NavBar />
       {/* <FilterMusic onFilter={handleFilter} /> */}
       {/* <MusicTable songs={filteredSongs} /> */}
-      <MusicTable onEdit={handleEdit} />
-      {editSong && (
-        <EditForm song={editSong} onClose={handleEditClose} />
-      )}
-      <AddEntryForm onClose={handleAddClose} />
+      <div className='table-form'>
+      <AddEntryForm onClose={handleAddClose} className='add-entry-form' />
+      <br />
+      <MusicTable onEdit={handleEdit} className='music-table' />
+      </div>
       {/* <Footer /> */}
     </div>
   );

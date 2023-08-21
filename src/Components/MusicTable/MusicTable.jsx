@@ -20,7 +20,7 @@ function MusicTable({onEdit}) {
   return (
     <div className='table'>
       <h2>Music Library</h2>
-      <Table striped bordered hover variant="dark">
+      <Table striped bordered hover variant="dark" size='sm'>
         <thead>
           <tr>
             <th>Song Title</th>
